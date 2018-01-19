@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <style>
+        h1{
+            background: steelblue ;
+            height: 100px;
+            text-align: center;
+            font-size: 80px;
+            padding: 0px;
+            margin: 0px;
+            color: ghostwhite;
+        }
+        .mv{
+            width: 320px;
+            padding: 10px;
+            border: 30px black;
+            margin: 0;
+            background: #f1f1f1;
+            height: 390px;
+        }
+        hr {
+            display: block;
+            border-style: inset;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body>
+<h1  style=" border: 10px black"><bold>P</bold>aisa<bold>B</bold>achao</h1>
+<hr style="color: black">
+<div conatiner="fluid" style="margin: 80px">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-8">
+            <div class="mv">
+                <h2 style="text-align: center; font-size: 40px;"><bold>SIGN UP</bold></h2>
+                <p>   Please fill in this form to create an account.</p>
+                <hr>
+                <form action="/user/signup" method="post">
+                    <label><b>Name</b></label> <br>
+                    <input type="text" name="username"><br>
+                    <label><b>Password</b></label><br>
+                    <input type="text" name="password"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
