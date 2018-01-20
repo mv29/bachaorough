@@ -14,9 +14,11 @@
     "express-session": "^1.15.6",
     "flash": "^1.1.0",
     "hbs": "^4.0.1",
+    "js-popup": "^1.0.4",
     "mysql2": "^1.5.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "popups": "^1.1.3",
     "sequelize": "^4.31.2",
     "socket.io": "^2.0.4"
   }

@@ -3,6 +3,7 @@ const User = require('../db/models').User ;// reqiuring the user table
 const User_expenditure1 = require('../db/models').User_expenditure1; // reqiuring the user table
 const passport = require('../passport');// rqiured the passport directory
 
+
 route.get('/profile', (req, res) => {
     if (req.user) {
         return res.render('profile', {user: req.user})
@@ -16,6 +17,7 @@ route.get('/chat', (req, res) => {
     res.redirect('/user/signin')
 });
 route.get('/expenditure', (req, res) => {
+    console.log(req.user);
     if (req.user) {
         return res.render('expenditure', {user: req.user})
     }
@@ -24,6 +26,7 @@ route.get('/expenditure', (req, res) => {
 
 });
 route.get('/expenditure/lol', (req, res) => {
+    if(req.body.username==req.user){
     User_expenditure1.findOne({ // searching int the user table for an object with name username
         where: {
             username: req.query.username+req.query.date
@@ -35,9 +38,22 @@ route.get('/expenditure/lol', (req, res) => {
     }).catch((err) => {
         return console.log('error');
     })
-    });
-route.post('/expenditure', (req, res) => {
+   }
+   else
+    {
+        res.redirect('/yo.html');
+    }
+});
+route.get('/chat', (req, res) => {
     console.log(req.user);
+    if (req.user) {
+        return res.redirect('yo.html');
+    }
+    res.redirect('/user/signin')
+});
+
+route.post('/expenditure', (req, res) => {
+   // console.log(req.user);
     if(req.body.username==req.user) {
         User_expenditure1.create({
             username: req.body.username + req.body.date,
@@ -50,8 +66,8 @@ route.post('/expenditure', (req, res) => {
     }
     else
     {
-
-        res.redirect('/pages/expenditure');
+        res.redirect('/yo.html');
+     //   res.redirect('/pages/expenditure');
     }
 });
 
