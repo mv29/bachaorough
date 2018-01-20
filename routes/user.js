@@ -10,14 +10,15 @@ route.post('/signup', (req, res) => {
         username: req.body.username,
         password: req.body.password
     }).then((user) => {
-        console.log(user);
+      // console.log(user);
         res.redirect('/user/signin')
     })
 });
 
 route.post('/signin', passport.authenticate('local', {
     successRedirect: '/pages/profile',
-    failureRedirect: '/user/signin'
+    failureRedirect: '/user/signin',
+  //  failureFlash: 'Invalid username or password.'
 }));
 exports = module.exports = route;
 

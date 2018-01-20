@@ -8,8 +8,6 @@ const localStrategy = new LocalStrategy(
                 username: username
             }
         }).then((user) => {
-        //  console.log(user);
-       //     console.log(typeuser);
             if (!user) {
                 //Wrong username
                 return done(null, false, {message: 'Wrong username'})

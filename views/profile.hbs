@@ -40,39 +40,42 @@
             border-style: inset;
             border-width: 4px;
         }
-        .button1{
-            background-color: white ;
-            border: 2px solid lightseagreen;
-            color:lightseagreen;
-            padding: 16px 32px;
+        p{
+            color:white;
+            font-size: 20px;
+        }
+        .btn-group .button {
+            background-color:lightseagreen; /* Green */
+            border: 1px solid lightseagreen;
+            color: ghostwhite;
+            padding: 15px 32px;
             text-align: center;
-            text-decoration: none;
             display: inline-block;
-            font-size:20px;
-            margin: 4px 2px;
+            font-size: 16px;
+            cursor: pointer;
+            float: left;
+            width: 450px;
         }
-        .button1:hover{
-            background-color:lightseagreen;
-            color :white;
-            border: 0px;
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        .btn-group .button:not(:last-child) {
+            border-right: none; /* Prevent double borders */
         }
+        .btn-group .button:hover {
+            background-color: steelblue;
+        }
+
     </style>
 </head>
 <body>
 <h1  class=" heading"style=" border: 10px black"><bold>P</bold>aisa<bold>B</bold>achao</h1>
 <hr>
 
-<h1>Hello {{user.username}} {{user.password}}</h1>
-<p>Hope we are able to help you in managing your expenses</p>
-<p>Always <bold>remeber</bold> to add your expenditures in your table so that we can help you wholeheartedly</p>
-<p>For any suggestions mail us at paisabachao@gmail.com</p>
+<h1 style="margin:30px">Hello {{user.username}}</h1>
 
-<h2>Want to see your expenditure or add them</h2>
-<hr style="  border-width: 1px;">
-<a href="/pages/expenditure" class="button1">Money Manager</a>
-<h2>Want some help ask it with our users and moderators and experts</h2>
-<a href="/chat.html" class="button1">BachaoTalk</a>
+<div class="btn-group" style="margin-top:20px">
+    <a href="/pages/expenditure" class="button">MoneyManager</a>
+    <a href="/chat.html" class="button">BachaoTalk</a>
+    <a href="/" class="button">Home</a>
+</div>
 </body>
 </html>
 

@@ -19,9 +19,9 @@
             color: ghostwhite;
         }
         .mv{
-            width: 800px;
+            width: 100%;
             height: 450px;
-            margin: 20px;
+        //  margin: 20px;
             padding: 20px;
             background: lightseagreen ;
             color: ghostwhite;
@@ -34,10 +34,12 @@
         }
         .button:hover {
             background-color: steelblue;
-            padding: 10px;
         }
         input{
             background: #f1f1f1;
+        }
+        label{
+            color:black;
         }
     </style>
 </head>
@@ -47,21 +49,28 @@
 
 
 
-<h2 style=" margin: 20px; text-align:left; font-size: 40px;color: lightseagreen"><bold>Add your expenditure</bold></h2>
-    <form action="/pages/expenditure" method="post" class="mv">
-        <label><b>UserName  :</b></label><br> <input type="text" name="username"><br>
-        <label><b>date  :</b></label><br><input type="text" name="date"><br>
-        <label><b>money spent on food  :</b></label><br><input type="text" name="food"><br>
-        <label><b>money spent on clothing  :</b></label><br><input type="text" name="clothing"><br>
-        <label><b>money spent on travel  :</b></label><br><input type="text" name="travel"><br>
-        <input type="submit" value="Submit" class="button" style="width: 330px ;margin: 10px;color: lightseagreen;">
-    </form>
-<h2 style=" margin: 20px; text-align:left; font-size: 40px;color: lightseagreen"><bold>Add username and date to see your expendiure on a particular date</bold></h2>
- <form action="/pages/expenditure/lol" method="get" class="mv" style="height: 250px" >
+<h2 style=" margin-top: 20px; text-align:left; font-size: 40px;color:ghostwhite;background: steelblue;"><bold>Add User Expenditure Details</bold></h2>
+
+
+
+<form action="/pages/expenditure" method="post" class="mv">
     <label><b>UserName  :</b></label><br> <input type="text" name="username"><br>
     <label><b>date  :</b></label><br><input type="text" name="date"><br>
-    <input type="submit" value="Submit" class="button" style="width: 330px ;margin: 10px;color: lightseagreen;">
- </form>
+    <label><b>money spent on food  :</b></label><br><input type="text" name="food"><br>
+    <label><b>money spent on clothing  :</b></label><br><input type="text" name="clothing"><br>
+    <label><b>money spent on travel  :</b></label><br><input type="text" name="travel"><br>
+    <input type="submit" value="Submit" class="button" style="width: 260px ;margin: 3px;color: lightseagreen;">
+</form>
+
+
+<h2 style=" margin-top: 20px; text-align:left; font-size: 40px;color:ghostwhite;background: steelblue;"><bold>Add username and date to see your expendiure on a particular date</bold></h2>
+
+
+<form action="/pages/expenditure/lol" method="get" class="mv" style="height: 100px" >
+    <label><b>UserName  : </b></label><input type="text" name="username">
+    <label><b>date  : </b></label><input type="text" name="date"><span>  </span>
+    <input type="submit" value="Submit" class="button" style="width: 260px ;margin: 5px;color: lightseagreen;">
+</form>
 <div class="container">
     <table class="table table-hover">
         <thead style=" color: lightseagreen ">
@@ -69,17 +78,16 @@
             <th>Food</th>
             <th>Clothing</th>
             <th>Travel</th>
-            <th>Amount</th>
+            <th>Total</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td>{{user.food}}</td>
             <td>{{user.clothing}}</td>
-            <td>{{user.treavel}}</td>
-            <td>{{user.total}}</td>
+            <td>{{user.travel}}</td>
+            <td> {{user.travel}} </td>
         </tr>
-
         </tbody>
 </div>
 
