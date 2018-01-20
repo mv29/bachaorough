@@ -1,6 +1,6 @@
 const express = require('express')
 const session = require('express-session')
-
+var flash=require('connect-flash');
 const http = require('http');
 const socketio = require('socket.io');
 const app = express();
@@ -16,6 +16,7 @@ app.use(session({
 
 //const User = require('/db/models').User;
 app.use(passport.initialize());
+app.use(flash());
 app.use(passport.session());
 app.set('view engine', 'hbs');
 

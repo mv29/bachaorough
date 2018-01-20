@@ -33,7 +33,9 @@
             border-width: 2px;
         }
     </style>
+
 </head>
+
 <body>
 <h1  style=" border: 10px black"><bold>P</bold>aisa<bold>B</bold>achao</h1>
 <hr style="color: black">
@@ -42,6 +44,13 @@
         <div class="col-4"></div>
         <div class="col-8">
             <div class="mv">
+                {{#if hasErrors1}}
+                    <div class="alert alert-danger">
+                        {{#each messages1}}
+                            <p>  {{this}} </p>
+                        {{/each}}
+                    </div>
+                {{/if}}
                 <h2 style="text-align: center; font-size: 40px"><bold>SIGN IN</bold></h2>
                 <p> Fill in thie account details to signin.</p>
                 <hr>
