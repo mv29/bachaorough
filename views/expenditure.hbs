@@ -41,6 +41,24 @@
         label{
             color:black;
         }
+        .btn-group .button1 {
+            background-color:lightseagreen; /* Green */
+            border: 1px solid lightseagreen;
+            color: ghostwhite;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            float: left;
+            width: 480px;
+        }
+        .btn-group .button1:not(:last-child) {
+            border-right: none; /* Prevent double borders */
+        }
+        .btn-group .button1:hover {
+            background-color: steelblue;
+        }
     </style>
 </head>
 <body>
@@ -48,10 +66,15 @@
 <hr style="color: black">
 
 
+<div class="btn-group">
+    <a href="/pages/profile" class="button1">profile</a>
+    <a href="/pages/chat" class="button1">BacahoTalk</a>
+    <a href="/" class="button1">home</a>
+</div>
+
+
 
 <h2 style=" margin-top: 20px; text-align:left; font-size: 40px;color:ghostwhite;background: steelblue;"><bold>Add User Expenditure Details</bold></h2>
-
-
 
 <form action="/pages/expenditure" method="post" class="mv">
     <label><b>UserName  :</b></label><br> <input type="text" name="username"><br>
