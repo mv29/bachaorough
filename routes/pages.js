@@ -12,7 +12,7 @@ route.get('/profile', (req, res) => {
 });
 route.get('/chat', (req, res) => {
     if (req.user) {
-        return res.render('pr', {user: req.user})
+        return res.redirect('/chat.html');
     }
     res.redirect('/user/signin')
 });
@@ -21,7 +21,7 @@ route.get('/expenditure', (req, res) => {
     if (req.user) {
         return res.render('expenditure', {user: req.user})
     }
-    res.redirect('/user/signin')
+    res.redirect('/user/signin');
 
 
 });
@@ -47,9 +47,9 @@ route.get('/expenditure/lol', (req, res) => {
 route.get('/chat', (req, res) => {
     console.log(req.user);
     if (req.user) {
-        return res.redirect('yo.html');
+        return res.render('chat');
     }
-    res.redirect('/user/signin')
+    res.redirect('/user/signin');
 });
 
 route.post('/expenditure', (req, res) => {

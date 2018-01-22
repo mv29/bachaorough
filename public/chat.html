@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Expenditure</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <title>Bachaotalk</title>
+    <script src="jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="clientside.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     <style>
         h1{
             background: steelblue ;
@@ -39,20 +41,44 @@
         input{
             background: #f1f1f1;
         }
+        .btn-group .button1 {
+            background-color:lightseagreen; /* Green */
+            border: 1px solid lightseagreen;
+            color: ghostwhite;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            float: left;
+            width: 480px;
+        }
+        .btn-group .button1:not(:last-child) {
+            border-right: none; /* Prevent double borders */
+        }
+        .btn-group .button1:hover {
+            background-color: steelblue;
+        }
     </style>
 </head>
 <body>
 <h1  style=" border: 10px black"><bold>P</bold>aisa<bold>B</bold>achao</h1>
 <hr style="color: black">
-<div class="container" id="chatbox">
+
+<div class="btn-group">
+    <a href="/pages/profile" class="button1">profile</a>
+    <a href="/pages/expenditure" class="button1">expenditure</a>
+    <a href="/" class="button1">home</a>
+</div>
+
+<div class="container " id="chatbox">
     <div class="row">
         <input class="form-control col m-4" type="text" id="inp-msg">
         <button class="btn btn-info col m-4" id="btn-send">SEND</button>
     </div>
+</div>
 
-    <div class="row p-4 m-4" id="chatlist">
-
-    </div>
+<div class="row p-4 m-4" id="chatlist">
 </div>
 </body>
 </html>

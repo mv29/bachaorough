@@ -3,14 +3,12 @@ let socket = io();
 $(function () {
 
     let containerChat = $('#chatbox');
-
-    containerChat.hide();
-
     let btnSend = $('#btn-send');
     let inpMsg = $('#inp-msg');
     let listChats = $('#chatlist');
 
     btnSend.click(() => {
+        console.log("mrinal");
         socket.emit('chat', {
             message: inpMsg.val()
         })
@@ -24,7 +22,6 @@ $(function () {
             $(`
             <div class="card ${cardExtraClass} col-12">
                 <div class="card-body">
-                    <div class="card-title">${data.sender}</div>
                     <div class="card-subtitle text-muted small">${data.timestamp}</div>
                     <div class="card-text">${data.message}</div>
                 </div>
