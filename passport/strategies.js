@@ -1,6 +1,8 @@
-const LocalStrategy = require('passport-local').Strategy
-const User = require('../db/models').User // including users table in local strategy also for local use
-// ('../db').user wrong or right  doubt
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('../db/models').User ;// including users table in local strategy also for local use
+const FacebookStrategy =require('passport-facebook').Strategy;
+
+
 const localStrategy = new LocalStrategy(
     (username, password, done) => {
         User.findOne({ // searching int the user table for an object with name username
@@ -24,7 +26,43 @@ const localStrategy = new LocalStrategy(
             return done(err)
         })
     });
+
+const Facebookstrategy = new FacebookStrategy({
+
+        clientID        : '143780762922533',
+        clientSecret    : '62ee8447811db44da1b0c4d52e585fa7',
+        callbackURL     : "http://localhost:3232/user/facebook/callback"
+
+    },
+    function(token, refreshToken, profile, done) {
+
+    process.nextTick(function() {
+            User.findOne({
+                where: {
+                    username: profile.displayName
+                }
+            }).then((user) => {
+                // if the user is found, then log them in
+                if (user) {
+                    return done(null, user); // user found, return that user
+                } else {
+                    // if there is no user found with that facebook id, create them
+                    User.create({
+                         username: profile.displayName
+                    }).then((user) => {
+                        return done(null, user); // user created
+                    }).catch((err) => {
+                        return done(err)
+                    })
+                }
+            }).catch((err) => {
+                return done(err)
+            })
+        });
+    });
+
 //why we are exporting the localstrategy when we have included the
 exports = module.exports = {
-    localStrategy
+    localStrategy,
+    Facebookstrategy
 }

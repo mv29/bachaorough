@@ -18,7 +18,11 @@ const User = db.define('users', { // define(hook) used for creating a new table 
         unique: true,
         allowNull: false
     },
-    password: DataTypes.STRING // second column of passwords
+    password:
+    {
+        type:DataTypes.STRING ,// second column of passwords
+        allowNull: true
+ }
 });
 // user expenditure table
 const User_expenditure1 = db.define('expenditures1', { // define(hook) used for creating a new table in my db database table name is users

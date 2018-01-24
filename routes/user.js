@@ -18,6 +18,17 @@ route.post('/signup', (req, res) => {
         res.redirect('/user/signin')
     })
 });
+route.get('/facebook', passport.authenticate('facebook', {
+    scope : ['public_profile', 'email']
+}));
+route.get('/facebook/callback',
+    passport.authenticate('facebook',
+        {
+            successRedirect: '/pages/profile',
+            failureRedirect: '/user/signin',
+        }
+        )
+);
 
 route.post('/signin', passport.authenticate('local', {
     successRedirect: '/pages/profile',
