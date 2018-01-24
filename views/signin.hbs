@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signin</title>
+    <title>Signup</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
@@ -12,59 +11,72 @@
     <style>
         h1{
             background: steelblue ;
-            height: 100px;
+            height: 130px;
             text-align: center;
-            font-size: 80px;
+            font-size: 100px;
             padding: 0px;
             margin: 0px;
             color: ghostwhite;
         }
         .mv{
-            width: 320px;
+            width: 500px;
             padding: 10px;
             border: 30px black;
             margin: 0;
             background: #f1f1f1;
-            height: 390px;
+            height: 550px;
         }
         hr {
             display: block;
             border-style: inset;
             border-width: 2px;
         }
+        .fb{
+            background: midnightblue;
+            text-align: center;
+            color: ghostwhite;
+            height:40px;
+            width: 60px;
+        }
+        .git{
+            background: darkgrey;
+            text-align: center;
+            color: black;
+            height:40px;
+            width: 60px;
+        }
+        input{
+            width: 350px;
+        }
+        label{
+            font-size: 20px;
+        }
     </style>
-
 </head>
-
 <body>
 <h1  style=" border: 10px black"><bold>P</bold>aisa<bold>B</bold>achao</h1>
 <hr style="color: black">
 <div conatiner="fluid" style="margin: 80px">
     <div class="row">
-        <div class="col-4"></div>
+        <div class="col-3"></div>
         <div class="col-8">
             <div class="mv">
-                {{#if hasErrors1}}
-                    <div class="alert alert-danger">
-                        {{#each messages1}}
-                            <p>  {{this}} </p>
-                        {{/each}}
-                    </div>
-                {{/if}}
-                <h2 style="text-align: center; font-size: 40px"><bold>SIGN IN</bold></h2>
-                <p> Fill in thie account details to signin.</p>
+                <h2 style="text-align: center; font-size: 40px;"><bold>SIGN in</bold></h2>
+                <p>   Please fill in this form to create an account.</p>
                 <hr>
-                <form action="/user/signin" method="post">
+                <form action="/user/sigin" method="post">
                     <label><b>Name</b></label> <br>
                     <input type="text" name="username"><br>
                     <label><b>Password</b></label><br>
                     <input type="text" name="password"><br>
-                    <input type="submit" value="Submit">
-                    <br>
+                    <input type="submit" class="btn btn-primary" style="width: 350px" value="Submit">
+                    <br><br>
                 </form>
-                <a href="/user/facebook" method="get" class="btn btn-primary" style="width:300px; text-align:center;"><span class="fa fa-facebook"></span>Sign in with Facebook</a>
+                <hr>
                 <br>
-                <a href="/user/facebook" method="get" class="btn btn-primary" style="width:300px; text-align:center;"><span class="fa fa-facebook"></span>Sign in with Facebook</a>
+                <a href="/user/facebook" method="get" class="btn fb" style="width:440px; text-align:center;"><bold>Sign in with Facebook</bold></a>
+                <br><br>
+                <a href="/user/github" method="get" class="btn git" style="width:440px; text-align:center;"><bold>Sign in with GitHub</bold>b</a>
             </div>
         </div>
         <div class="col-2"></div>
@@ -73,4 +85,5 @@
 
 </body>
 </html>
+
 

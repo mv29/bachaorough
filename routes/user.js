@@ -29,6 +29,18 @@ route.get('/facebook/callback',
         }
         )
 );
+route.get('/github', passport.authenticate('github', {
+    scope : ['public_profile', 'email']
+}));
+
+route.get('/github/callback',
+    passport.authenticate('github',
+        {
+            successRedirect: '/pages/profile',
+            failureRedirect: '/user/signin',
+        }
+    )
+);
 
 route.post('/signin', passport.authenticate('local', {
     successRedirect: '/pages/profile',

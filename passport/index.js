@@ -5,6 +5,7 @@ const User = require('../db/models').User; // important remember the syntax
 
 passport.use(strategies.localStrategy);
 passport.use(strategies.Facebookstrategy);
+passport.use(strategies.github);
 passport.serializeUser(function (user, done) {
    // console.log('serialize' + user );
     done(null, user.id)
