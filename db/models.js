@@ -7,18 +7,13 @@ const db = new Sequelize('paisabachao', 'mrinal', 'mrinalverma', {
     dialect: 'mysql',
 });
 // users table
-const User = db.define('users', { // define(hook) used for creating a new table in my db database table name is users
+const User = db.define('user', { // define(hook) used for creating a new table in my db database table name is users
     id: {                         // defining the property of the id which will refer to are rows
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     username: {               // defining the columns , first column is of username,columns can also have properties
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false
-    },
-    email: {               // defining the columns , first column is of username,columns can also have properties
         type: DataTypes.STRING,
         unique: true,
         allowNull: false
@@ -30,14 +25,25 @@ const User = db.define('users', { // define(hook) used for creating a new table 
  }
 });
 // user expenditure table
-const User_expenditure1 = db.define('expenditures1', { // define(hook) used for creating a new table in my db database table name is users
+const User_expenditure = db.define('expenditures', { // define(hook) used for creating a new table in my db database table name is users
     id: {                         // defining the property of the id which will refer to are rows
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    username: {
+    username:{
         type: DataTypes.STRING,
+        unique: false,  // for expenditures table username has to be unique so that other entries of the same users expenditure can be added
+        allowNull: false
+    },
+    year:{
+        type: DataTypes.INTEGER,
+    },
+    month:{
+        type: DataTypes.INTEGER,
+    },
+    date:{
+        type: DataTypes.INTEGER,
     },
     food: {
         type: DataTypes.FLOAT,
@@ -47,7 +53,10 @@ const User_expenditure1 = db.define('expenditures1', { // define(hook) used for 
     },
     travel: {
         type: DataTypes.FLOAT,
-   }
+   },
+    entertainment: {
+        type: DataTypes.FLOAT,
+    }
 });
 
 db.sync().then(() => "Database created");
@@ -55,5 +64,5 @@ db.sync().then(() => "Database created");
 exports = module.exports = {
     db,  // exporting the database
     User,// exporting the users table
-    User_expenditure1,
+    User_expenditure,
 };
