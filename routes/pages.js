@@ -60,6 +60,7 @@ route.post('/expenditure', (req, res) => {
     });
 });
 //
+/*
 route.get('/chat', (req, res) => {
    // console.log(req.user);
     if (req.user) {
@@ -67,5 +68,5 @@ route.get('/chat', (req, res) => {
     }
     res.redirect('/user/signin');
 });
-
+*/
 exports = module.exports = route;
