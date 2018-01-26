@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup</title>
+    <title>SignIn</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
@@ -61,10 +61,17 @@
         <div class="col-3"></div>
         <div class="col-8">
             <div class="mv">
-                <h2 style="text-align: center; font-size: 40px;"><bold>SIGN in</bold></h2>
+                {{#if hasErrors1}}
+                    <div class="alert alert-danger">
+                        {{#each messages1}}
+                            <p>  {{this}} </p>
+                        {{/each}}
+                    </div>
+                {{/if}}
+                <h2 style="text-align: center; font-size: 40px;"><bold>SIGN IN</bold></h2>
                 <p>   Please fill in this form to create an account.</p>
                 <hr>
-                <form action="/user/sigin" method="post">
+                <form action="/user/signin" method="post">
                     <label><b>Name</b></label> <br>
                     <input type="text" name="username"><br>
                     <label><b>Password</b></label><br>

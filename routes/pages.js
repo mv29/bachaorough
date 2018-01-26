@@ -17,7 +17,7 @@ route.get('/chat', (req, res) => {
     res.redirect('/user/signin')
 });
 route.get('/expenditure', (req, res) => {
-    console.log(req.user);
+  //  console.log(req.user);
     if (req.user) {
         return res.render('expenditure', {user: req.user})
     }
@@ -33,7 +33,7 @@ route.get('/expenditure/lol', (req, res) => {
         }
     }).
     then((user) => {
-        console.log(user);
+      //  console.log(user);
         return res.render('expenditure', {user: user })
     }).catch((err) => {
         return console.log('error');
@@ -45,7 +45,7 @@ route.get('/expenditure/lol', (req, res) => {
     }
 });
 route.get('/chat', (req, res) => {
-    console.log(req.user);
+   // console.log(req.user);
     if (req.user) {
         return res.render('chat');
     }
@@ -53,8 +53,11 @@ route.get('/chat', (req, res) => {
 });
 
 route.post('/expenditure', (req, res) => {
-   // console.log(req.user);
-    if(req.body.username==req.user) {
+    const lol =new Date();
+    console.log(lol.getDate());
+    console.log(lol.getMonth());
+    console.log(lol.getFullYear());
+    if(req.body.username==req.user.username) {
         User_expenditure1.create({
             username: req.body.username + req.body.date,
             food: parseFloat(req.body.food),

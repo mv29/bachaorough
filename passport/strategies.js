@@ -12,6 +12,7 @@ const localStrategy = new LocalStrategy(
         }).then((user) => {
             if (!user) {
                 //Wrong username
+
                 return done(null, false, {message: 'Wrong username'})
             }
             if (user.password === password) {
@@ -19,6 +20,7 @@ const localStrategy = new LocalStrategy(
                 return done(null, user)
             } else {
                 // Correct username, wrong password
+          //      console.log("lol");
                 return done(null, false, {message: 'Wrong password'})
             }
 
@@ -100,4 +102,4 @@ exports = module.exports = {
     localStrategy,
     Facebookstrategy,
     github
-}
+};

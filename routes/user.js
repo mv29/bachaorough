@@ -2,10 +2,7 @@ const route = require('express').Router();
 const User = require('../db/models').User ;// reqiuring the user table
 const passport = require('../passport');// rqiured the passport directory
 
-route.get('/signin',function (req,res) {
-    const messages1=req.flash('error');
-    res.render('signin',{messages1:messages1,hasErrors1:messages1.length>0});
-})
+// signup
 route.get('/signup',function (req,res) {
     res.render('signup');
 });
@@ -18,6 +15,21 @@ route.post('/signup', (req, res) => {
         res.redirect('/user/signin')
     })
 });
+//
+
+// signin
+route.get('/signin',function (req,res) {
+    const messages1=req.flash('error');
+    res.render('signin',{messages1:messages1,hasErrors1:messages1.length>0});
+});
+
+route.post('/signin', passport.authenticate('local', {
+    failureFlash: true,
+    successRedirect: '/pages/profile',
+    failureRedirect: '/user/signin',
+}));
+
+// facebook
 route.get('/facebook', passport.authenticate('facebook', {
     scope : ['public_profile', 'email']
 }));
@@ -29,6 +41,8 @@ route.get('/facebook/callback',
         }
         )
 );
+//
+// github
 route.get('/github', passport.authenticate('github', {
     scope : ['public_profile', 'email']
 }));
@@ -41,12 +55,7 @@ route.get('/github/callback',
         }
     )
 );
-
-route.post('/signin', passport.authenticate('local', {
-    successRedirect: '/pages/profile',
-    failureRedirect: '/user/signin',
-    failureFlash: true
-}));
+//
 exports = module.exports = route;
 
 
