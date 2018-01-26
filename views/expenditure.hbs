@@ -18,15 +18,6 @@
             margin: 0px;
             color: ghostwhite;
         }
-        .mv{
-            width: 100%;
-            height: 450px;
-        //  margin: 20px;
-            padding: 20px;
-            background: lightseagreen ;
-            color: ghostwhite;
-            font-size: 20px;
-        }
         hr {
             display: block;
             border-style: inset;
@@ -59,6 +50,10 @@
         .btn-group .button1:hover {
             background-color: steelblue;
         }
+        .lol{
+            margin-bottom: 100px;
+        }
+
     </style>
 </head>
 <body>
@@ -72,35 +67,75 @@
     <a href="/" class="button1">home</a>
 </div>
 
-
-
+<br><br><br>
 <h2 style=" margin-top: 20px; text-align:left; font-size: 40px;color:ghostwhite;background: steelblue;"><bold>Add User Expenditure Details</bold></h2>
 
-<form action="/pages/expenditure" method="post" class="mv">
-    <label><b>UserName  :</b></label><br> <input type="text" name="username"><br>
-    <label><b>date  :</b></label><br><input type="text" name="date"><br>
-    <label><b>money spent on food  :</b></label><br><input type="text" name="food"><br>
-    <label><b>money spent on clothing  :</b></label><br><input type="text" name="clothing"><br>
-    <label><b>money spent on travel  :</b></label><br><input type="text" name="travel"><br>
-    <input type="submit" value="Submit" class="button" style="width: 260px ;margin: 3px;color: lightseagreen;">
+<form action="/pages/expenditure" method="post" >
+
+    <div class="container-fluid" >
+        <table class="table table-hover" class="lol">
+            <thead style=" color: lightseagreen ">
+            <tr>
+                <th>Food</th>
+                <th>Clothing</th>
+                <th>Travel</th>
+                <th>Entertainment</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody style="background: lightseagreen;">
+            <tr>
+                <td><input type="text" name="Food"></td>
+                <td><input type="text" name="Clothing"></td>
+                <td><input type="text" name="Travel"></td>
+                <td><input type="text" name="Entertainment"></td>
+                <td><input type="submit" value="Submit" class="button" style="width: 260px ;margin: 3px;color: lightseagreen;"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </form>
 
+
+
+<br><br><br><br>
 
 <h2 style=" margin-top: 20px; text-align:left; font-size: 40px;color:ghostwhite;background: steelblue;"><bold>Add username and date to see your expendiure on a particular date</bold></h2>
 
 
-<form action="/pages/expenditure/lol" method="get" class="mv" style="height: 100px" >
-    <label><b>UserName  : </b></label><input type="text" name="username">
-    <label><b>date  : </b></label><input type="text" name="date"><span>  </span>
-    <input type="submit" value="Submit" class="button" style="width: 260px ;margin: 5px;color: lightseagreen;">
+<form action="/pages/expenditure/lol" method="get"  style="height: 100px" >
+    <div class="container-fluid" >
+        <table class="table table-hover" class="lol">
+            <thead style=" color: lightseagreen ">
+            <tr>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Date</th>
+                <th>Fetch</th>
+            </tr>
+            </thead>
+            <tbody style="background: lightseagreen;">
+            <tr>
+                <td><input type="text" name="year"></td>
+                <td><input type="text" name="month"></td>
+                <td><input type="text" name="date"></td>
+                <td><input type="submit" value="Submit" class="button" style="width: 260px ;margin: 3px;color: lightseagreen;"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </form>
-<div class="container">
+<br>
+
+<div class="container-fluid">
     <table class="table table-hover">
         <thead style=" color: lightseagreen ">
         <tr>
             <th>Food</th>
             <th>Clothing</th>
             <th>Travel</th>
+            <th>Entertairment</th>
         </tr>
         </thead>
         <tbody>
@@ -108,8 +143,10 @@
             <td>{{user.food}}</td>
             <td>{{user.clothing}}</td>
             <td>{{user.travel}}</td>
+            <td>{{user.entertainment}}</td>
         </tr>
         </tbody>
+    </table>
 </div>
 
 </body>

@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 const DataTypes = Sequelize.DataTypes;
 
-const db = new Sequelize('paisabachao', 'mrinalverma', 'solarpower29', {
+const db = new Sequelize('paisabachao', 'mrinal', 'mrinalverma', {
     dialect: 'mysql',
 });
 // users table
@@ -14,6 +14,11 @@ const User = db.define('users', { // define(hook) used for creating a new table 
         autoIncrement: true
     },
     username: {               // defining the columns , first column is of username,columns can also have properties
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false
+    },
+    email: {               // defining the columns , first column is of username,columns can also have properties
         type: DataTypes.STRING,
         unique: true,
         allowNull: false
