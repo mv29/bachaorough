@@ -60,13 +60,13 @@ route.post('/expenditure', (req, res) => {
     });
 });
 //
-/*
+
 route.get('/chat', (req, res) => {
    // console.log(req.user);
     if (req.user) {
-        return res.render('chat');
+        return res.render('/chat.html');
     }
     res.redirect('/user/signin');
 });
-*/
+
 exports = module.exports = route;
